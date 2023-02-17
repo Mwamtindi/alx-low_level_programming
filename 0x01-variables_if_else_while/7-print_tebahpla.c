@@ -8,8 +8,8 @@
 int main(void)
 {
 	char c = 'z';
-	do
-	{
+
+	do{
 		putchar(c);
 		c--;
 	}

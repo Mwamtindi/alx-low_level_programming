@@ -14,7 +14,7 @@ int main(void)
 
 		for (q = p + 1; q <= 99; q++)
 		{
-			putchar((q / 10) + '0');
+			putchar((p / 10) + '0');
 
 			putchar((p % 10) + '0');
 

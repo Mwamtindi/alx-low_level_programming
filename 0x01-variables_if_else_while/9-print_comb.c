@@ -7,11 +7,13 @@
 
 int main(void)
 {
-	for (int c = 0; c < 10; c++)
+	int c, j, k;
+
+	for (c = 0; c < 10; c++)
 	{
-		for (int j = c; j < 10; j++)
+		for (j = c; j < 10; j++)
 		{
-			for (int k = j; k < 10; k++)
+			for (k = j; k < 10; k++)
 			{
 				putchar(c + '0');
 

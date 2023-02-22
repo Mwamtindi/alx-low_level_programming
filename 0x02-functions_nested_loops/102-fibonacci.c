@@ -16,7 +16,7 @@ int main(void)
 		if (r == 0)
 			printf("%ld", t);
 		else if (r == 1)
-			printf("%ld", y);
+			printf(", %ld", y);
 		else
 		{
 			y = y + t;

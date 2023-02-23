@@ -10,7 +10,7 @@
 
 int main(void)
 {
-	int z = 1;
+	int z = 0;
 
 	for (; z <= 100; z++)
 	{

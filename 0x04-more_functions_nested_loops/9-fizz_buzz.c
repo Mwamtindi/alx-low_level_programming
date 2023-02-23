@@ -12,7 +12,7 @@ int main(void)
 {
 	int z;
 
-	for (z = 0; z <= 100; z++)
+	for (z = 1; z <= 100; z++)
 	{
 		if (z % 3 == 0)
 		{

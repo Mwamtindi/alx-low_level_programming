@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "main.c"
+#include "main.h"
 
 /**
  * more_numbers - prints 10 times the numbers, from 0 t0 14.

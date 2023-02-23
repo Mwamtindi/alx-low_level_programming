@@ -10,27 +10,28 @@
 
 int main(void)
 {
-	int z;
+	int p;
 
-	for (z = 1; z <= 100; z++)
+	for (p = 1; p <= 100; p++)
 	{
-		if (z % 3 == 0 && z % 5 == 0)
+		if (p % 3 == 0 && p % 5 == 0)
 		{
 			printf("FizzBuzz ");
 		}
-		else if (z % 3 == 0)
+		else if (p % 3 == 0)
 		{
 			printf("Fizz ");
 		}
-		else if (z % 5 == 0)
+		else if (p % 5 == 0)
 		{
 			printf("Buzz ");
 		}
 		else
 		{
-			printf("%d ", z);
+			printf("%d ", p);
 		}
 	}
-	printf("\n ");
+
+	printf("\n");
 	return (0);
 }

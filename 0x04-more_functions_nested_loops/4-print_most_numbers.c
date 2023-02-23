@@ -3,6 +3,8 @@
 #include "main.h"
 /**
  * print_most_numbers - prints the numbers, from 0 to 9.
+ * Description: prints the number excluding 2 and 4.
+ * Return: the number space 0 upto 9
  */
 
 void print_most_numbers(void)

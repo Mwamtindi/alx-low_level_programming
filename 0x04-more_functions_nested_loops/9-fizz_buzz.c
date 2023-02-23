@@ -10,9 +10,9 @@
 
 int main(void)
 {
-	int z = 0;
+	int z;
 
-	for (; z <= 100; z++)
+	for (z = 1; z <= 100; z++)
 	{
 		if (z % 3 == 0 && z % 5 == 0)
 		{

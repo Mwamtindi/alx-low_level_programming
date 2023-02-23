@@ -31,6 +31,6 @@ int main(void)
 			printf("%d ", z);
 		}
 	}
-	printf("\n");
+	printf("\n ");
 	return (0);
 }

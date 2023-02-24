@@ -16,19 +16,23 @@ int main(void)
 	{
 		if (p % 3 == 0 && p % 5 == 0)
 		{
-			printf("FizzBuzz ");
+			printf("FizzBuzz");
 		}
 		else if (p % 3 == 0)
 		{
-			printf("Fizz ");
+			printf("Fizz");
 		}
 		else if (p % 5 == 0)
 		{
-			printf("Buzz ");
+			printf("Buzz");
 		}
 		else
 		{
-			printf("%d ", p);
+			printf("%d", p);
+		}
+		if (p != 100)
+		{
+			printf(" ");
 		}
 	}
 

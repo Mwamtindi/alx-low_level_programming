@@ -11,21 +11,21 @@
 int main(void)
 {
 	int pass[100];
-	int i, sum, n;
+	int a, s, d;
 
-	sum = 0;
+	s = 0;
 	srand(time(NULL));
 
-	for (i = 0; i < 100; i++)
+	for (a = 0; a < 100; a++)
 	{
-		pass[i] = rand() % 78;
-		sum += (pass[i] + '0');
-		putchar(pass[i] + '0');
-		if ((2772 - sum) - '0' < 78)
+		pass[a] = rand() % 78;
+		s += (pass[a] + '0');
+		putchar(pass[a] + '0');
+		if ((2772 - s) - '0' < 78)
 		{
-			n = 2772 - sum - '0';
-			sum += n;
-			putchar(n + '0');
+			d = 2772 - s - '0';
+			s += d;
+			putchar(d + '0');
 			break;
 		}
 	}

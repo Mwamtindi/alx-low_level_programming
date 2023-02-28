@@ -5,34 +5,25 @@
 /**
  * _atoi - convert a string to an integer.
  * @s: the pointer used.
- * Return: On success sign * num.
+ * Return: On success sign * result.
  */
 
 int _atoi(char *s)
 {
-	int g = 1;
-	int m = 0;
+	int sign = 1, num = 0, found_num = 0;
 
-	while (*s != '\0')
+	while (*s)
 	{
 		if (*s == '-')
-		{
-			g *= -1;
-		}
+			sign *= -1;
 		else if (*s >= '0' && *s <= '9')
 		{
-			m = m * 10 + (*s - '0');
+			found_num = 1;
+			num = num * 10 + (*s - '0');
 		}
-		else if (*s == '+')
-		{
-		}
-		else if (m > 0)
-		{
-
+		else if (found_num)
 			break;
-		}
 		s++;
 	}
-
-	return (g * m);
+	return (num * sign);
 }

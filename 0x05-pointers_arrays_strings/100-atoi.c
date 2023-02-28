@@ -11,7 +11,7 @@
 int _atoi(char *s)
 {
 	int sign = 1, found_num = 0;
-	float num = 0;
+	double num = 0;
 
 	while (*s != '\0')
 	{

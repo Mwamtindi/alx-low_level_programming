@@ -1,35 +1,35 @@
 #include <stdio.h>
 #include <time.h>
-#include "main.h"
-#define PASSWORD_LENGTH 6
+#include <stdlib.h>
 
 /**
- * _putchar - generate password
- * @c: the character to be checked.
- * Return: Always 0.
- *
  * main - check the code and generate random password.
+ *
+ * Return: Always 0.
  */
-
-int _putchar(char c);
 
 int main(void)
 {
-	char password[PASSWORD_LENGTH + 1];
-	int w;
+	char password[7];
+	int i, r;
 
 	srand(time(NULL));
-	for (w = 0; w < PASSWORD_LENGTH; w++)
+
+	for (i = 0; i < 4; i++)
 	{
-		password[w] = rand() % 26 + 97;
-	}
-	password[PASSWORD_LENGTH] = '\0';
-	for (w = 0; w < PASSWORD_LENGTH; w++)
-	{
-		_putchar(password[w]);
+		r = rand() % 26;
+		password[i] = 'a' + r;
 	}
 
-	_putchar('\n');
+	for (i = 4; i < 6; i++)
+	{
+		r = rand() % 10;
+		password[i] = '0' + r;
+	}
+
+	password[6] = '\0';
+
+	printf("%s\n", password);
 
 	return (0);
 }

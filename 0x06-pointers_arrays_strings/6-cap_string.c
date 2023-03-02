@@ -10,21 +10,28 @@
 
 char *cap_string(char *str)
 {
-	char *k = str;
-	int c = 1;
+	int x = 0;
 
-	while (*k != '\0')
+	while (str[x])
 	{
-		if (isspace(*k) || ispunct(*k))
-		{
-			c = 1;
-		}
-		else if (c)
-		{
-			*k = toupper(*k);
-			c = 0;
-		}
-		k++;
+		while (!(str[x] >= 'a' && str[x] <= 'z'))
+			x++;
+		if (str[x - 1] == ' ' ||
+				str[x - 1] == '\t' ||
+				str[x - 1] == '\n' ||
+				str[x - 1] == ',' ||
+				str[x - 1] == ';' ||
+				str[x - 1] == '.' ||
+				str[x - 1] == '!' ||
+				str[x - 1] == '?' ||
+				str[x - 1] == '"' ||
+				str[x - 1] == '(' ||
+				str[x - 1] == ')' ||
+				str[x - 1] == '{' ||
+				str[x - 1] == '}' ||
+				x == 0)
+			str[x] = str[x] - 32;
+		x++;
 	}
 	return (str);
 }

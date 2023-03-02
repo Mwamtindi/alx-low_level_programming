@@ -13,43 +13,37 @@
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int overflow = 0, i = 0, j = 0, digits = 0;
-	int val1 = 0, val2 = 0, temp_tot = 0;
+	int k, n, pg, q, x1, x2;
 
-	while (*(n1 + i) != '\0')
-		i++;
-	while (*(n2 + j) != '\0')
-		j++;
-	i--;
-	j--;
-	if (j >= size_r || i >= size_r)
+	for (k = 0; n1[k]; k++)
+		;
+	for (n = 0; n2[n]; n++)
+		;
+	if (k > size_r || n > size_r)
 		return (0);
-	while (j >= 0 || i >= 0 || overflow == 1)
+	x1 = 0;
+	for (k -= 1, n -= 1, pg = 0; pg < size_r - 1; k--, n--, pg++)
 	{
-		if (i < 0)
-			val1 = 0;
-		else
-			val1 = *(n1 + i) - '0';
-		if (j < 0)
-			val2 = 0;
-		else
-			val2 = *(n2 + j) - '0';
-		temp_tot = val1 + val2 + overflow;
-		if (temp_tot >= 10)
-			overflow = 1;
-		else
-			overflow = 0;
-		if (digits >= (size_r - 1))
-			return (0);
-		*(r + digits) = (temp_tot % 10) + '0';
-		digits++;
-		j--;
-		i--;
+		x2 = x1;
+		if (k >= 0)
+			x2 += n1[k] - '0';
+		if (n >= 0)
+			x2 += n2[n] - '0';
+		if (k < 0 && n < 0 && x2 == 0)
+		{
+			break;
+		}
+		x1 = x2 / 10;
+		r[pg] = x2 % 10 + '0';
 	}
-	if (digits == size_r)
+	r[pg] = '\0';
+	if (k >= 0 || n >= 0 || x1)
 		return (0);
-	*(r + digits) = '\0';
-	rev_string(r);
+	for (pg -= 1, q = 0; q < pg; pg--, q++)
+	{
+		x1 = r[pg];
+		r[pg] = r[q];
+		r[q] = x1;
+	}
 	return (r);
 }
-

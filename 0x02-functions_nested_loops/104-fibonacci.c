@@ -15,7 +15,7 @@ int main(void)
 	for (i = 3; i < 98; i++)
 	{
 		c = a + b;
-		printf("%d", c);
+		printf("%d, ", c);
 
 		if (i < 98)
 		{

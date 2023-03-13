@@ -14,17 +14,26 @@
 char *_strdup(char *str)
 {
 	char *dup;
+	int p, leng = 0;
 
-	dup = (char *) malloc(strlen(str) + 1);
+	dup = (char *) malloc(leng + 1);
 
 	if (str == NULL)
 	{
 		return (NULL);
 	}
+	while (str[leng] != '\0')
+	{
+		leng++;
+	}
 	if (dup == NULL)
 	{
 		return (NULL);
 	}
-	strcpy(dup, str);
+	for (p = 0; p < leng; p++)
+	{
+		dup[p] = str[p];
+	}
+	dup[leng] = '\0';
 	return (dup);
 }

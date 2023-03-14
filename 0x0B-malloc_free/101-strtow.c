@@ -2,30 +2,45 @@
 #include <stdlib.h>
 #include "main.h"
 
+int word_length(char *str);
+int word_count(char *str);
 /**
- * _count-count number of the words
- * @ng: adress of the string
- * Return: string0.
+ * word_length-count number of the words
+ * @str: adress of the string
+ * Return: leng.
  */
-int _count(char *ng)
+int word_length(char *str)
 {
-	int sha0, string0 = 0;
+	int sha = 0, leng = 0;
 
-	for (sha0 = 0; ng[sha0]; sha0++)
+	while (*(str + sha) && *(str + sha) != ' ')
 	{
-		if (ng[sha0] == ' ')
-		{
-			if (ng[sha0 + 1] != ' ' && ng[sha0 + 1] != '\0')
-				string0++;
-		}
-		else if (sha0 == 0)
-			string0++;
+		leng++;
+		sha++;
 	}
-	string0++;
-
-	return (string0);
+	return (leng);
 }
+/**
+ * word_count - counts the number of words
+ * @str: the string to be checked
+ * Return:number of words.
+ */
+int word_count(char *str)
+{
+	int sha = 0, words = 0, leng = 0;
 
+	for (sha = 0; *(str + sha); sha++)
+		leng++;
+	for (sha = 0; sha < leng; sha++)
+	{
+		if (*(str + sha) != ' ')
+		{
+			words++;
+			sha += word_length(str + sha);
+		}
+	}
+	return (words);
+}
 /**
  * strtow - splits a string into words
  * @str: address of the string
@@ -35,44 +50,38 @@ int _count(char *ng)
 
 char **strtow(char *str)
 {
-	char **words;
-	int sha0, sha1, word = 0, e = 0, b, s;
+	char **string0;
+	int sha = 0, words, u, tt, v;
 
-	if (str == NULL || *str == '\0')
-		return (NULL);
-	word = _count(str);
-	if (word == 1)
+	if (str == NULL || str[0] == '\0')
 		return (NULL);
 
-	words = malloc(sizeof(char *) * (word + 1));
-	if (words == NULL)
+	words = word_count(str);
+	if (words == 0)
 		return (NULL);
-	words[word - 1] = NULL;
-	while (str[sha0])
+
+	string0 = malloc(sizeof(char *) * (words + 1));
+	if (string0 == NULL)
+		return (NULL);
+
+	for (u = 0; u < words; u++)
 	{
-		if (str[sha0] != ' ' && (sha0 == 0 || str[sha0 - 1] == ' '))
+		while (str[sha] == ' ')
+			sha++;
+		tt = word_length(str + sha);
+		string0[u] = malloc(sizeof(char) * (tt + 1));
+
+		if (string0[u] == NULL)
 		{
-			for (sha1 = 1; str[sha0 + sha1] != ' ' && str[sha0 + sha1]; sha1++)
-				;
-			sha1++;
-			words[e] = malloc(sizeof(char) * sha1 + 1);
-			sha1--;
-			if (words[e] == NULL)
-			{
-				for (b = 0; b < e; b++)
-					free(words[b]);
-				free(words[word - 1]);
-				free(words);
-				return (NULL);
-			}
-			for (s = 0; s < sha1; s++)
-				words[e][s] = str[sha0 + s];
-			words[e][s] = '\0';
-			e++;
-			sha0 += sha1++;
+			for (; u >= 0; u--)
+				free(string0[u]);
+			free(string0);
+			return (NULL);
 		}
-		else
-			sha0++;
+		for (v = 0; v < tt; v++)
+			string0[u][v] = str[sha++];
+		string0[u][v] = '\0';
 	}
-	return (words);
+	string0[u] = NULL;
+	return (string0);
 }

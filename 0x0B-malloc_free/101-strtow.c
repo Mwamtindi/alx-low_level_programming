@@ -44,7 +44,7 @@ char **strtow(char *str)
 	if (word == 1)
 		return (NULL);
 
-	words = malloc(sizeof(char *) * (word + 1));
+	words = (char **) malloc(sizeof(char *) * (word + 1));
 	if (words == NULL)
 		return (NULL);
 	words[word - 1] = NULL;

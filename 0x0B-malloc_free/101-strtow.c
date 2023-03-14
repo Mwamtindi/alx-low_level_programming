@@ -3,22 +3,22 @@
 #include "main.h"
 
 /**
- * count-count number of the words
+ * _count-count number of the words
  * @ng: adress of the string
  * Return: string0.
  */
-int count(char *ng)
+int _count(char *ng)
 {
-	int x, string0 = 0;
+	int sha0, string0 = 0;
 
-	for (x = 0; ng[x]; x++)
+	for (sha0 = 0; ng[sha0]; sha0++)
 	{
-		if (ng[x] == ' ')
+		if (ng[sha0] == ' ')
 		{
-			if (ng[x + 1] != ' ' && ng[x + 1] != '\0')
+			if (ng[sha0 + 1] != ' ' && ng[sha0 + 1] != '\0')
 				string0++;
 		}
-		else if (x == 0)
+		else if (sha0 == 0)
 			string0++;
 	}
 	string0++;
@@ -40,11 +40,11 @@ char **strtow(char *str)
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
-	word = count(str);
+	word = _count(str);
 	if (word == 1)
 		return (NULL);
 
-	words = (char **) malloc(sizeof(char *) * (word + 1));
+	words = malloc(sizeof(char *) * (word + 1));
 	if (words == NULL)
 		return (NULL);
 	words[word - 1] = NULL;

@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 {
 	char *mult;
 	int num1, num2, prod, d, k, e = 0;
-	int digits[10];
+	int digits[100];
 
 	if (argc != 3)
 	{
@@ -76,6 +76,7 @@ int main(int argc, char *argv[])
 	{
 		_putchar(digits[k] + '0');
 	}
-	return ('\n');
+	_putchar('\n');
+
 	return (0);
 }

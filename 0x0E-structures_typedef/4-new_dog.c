@@ -24,7 +24,7 @@ int _strlen(char *s)
 
 
 /**
-* *_strcpy - copies the string
+* _strcpy - copies the string
 * @dest: pointer to the buffer
 * @src: string to be copied
 * Return: the pointer to dest.
@@ -79,8 +79,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(dog->name);
 		return (NULL);
 	}
-	_strcpy(dog->name, name);
-	_strcpy(dog->owner, owner);
+	*_strcpy(dog->name, name);
+	*_strcpy(dog->owner, owner);
 	dog->age = age;
 
 	return (dog);

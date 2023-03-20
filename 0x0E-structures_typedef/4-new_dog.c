@@ -24,12 +24,12 @@ int _strlen(char *s)
 
 
 /**
-* _strcpy - copies the string
+* *_strcpy - copies the string
 * @dest: pointer to the buffer
 * @src: string to be copied
 * Return: the pointer to dest.
 */
-char _strcpy(char *dest, char *src)
+char *_strcpy(char *dest, char *src)
 {
 	int leng, e;
 

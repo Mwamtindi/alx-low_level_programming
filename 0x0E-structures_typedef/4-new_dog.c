@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include "dog.h"
 
-int _strlen(char *s);
-char _strcpy(char *dest, char *src);
 /**
  * _strlen - returns the length of a string
  * @s: pointer to the string

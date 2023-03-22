@@ -1,5 +1,5 @@
-#ifndef HEADER_FILE_MAIN_H
-#define HEADER_FILE_MAIN_H
+#ifndef FUNCTION_POINTERS_H
+#define FUNCTION_POINTERS_H
 
 void print_name(char *name, void (*f)(char *));
 

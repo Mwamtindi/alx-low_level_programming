@@ -4,6 +4,6 @@ main:
 	  mov   ebx, format
 	  xor   ecx, ecx
 	  call  printf
-	  mov 	ecx, 0
+	  mov 	eax, 0
 	  ret
 format: db `Hello, Holberton\n`,0

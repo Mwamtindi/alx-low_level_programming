@@ -16,22 +16,24 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	unsigned int e;
 	listint_t *neod, *pet = *head;
 
-	if (!head)
-		return (NULL);
-	if (idx == 0)
-		return (add_nodeint_end(head, n));
-	for (e = 0; e < idx - 1; e++)
-	{
-		if (!pet)
-			return (NULL);
-		pet = pet->next;
-	}
-
 	neod = malloc(sizeof(listint_t));
-	if (!neod)
+	if (neod == NULL)
 		return (NULL);
 
 	neod->n = n;
+	if (idx == 0)
+	{
+		neod->next = pet;
+		*head = neod;
+		return (neod);
+	}
+
+	for (e = 0; e < (idx - 1); e++)
+	{
+		if (pet == NULL || pet->next == NULL)
+			return (NULL);
+		pet = pet->next;
+	}
 	neod->next = pet->next;
 	pet->next = neod;
 

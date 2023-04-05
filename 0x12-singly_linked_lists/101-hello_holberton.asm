@@ -1,6 +1,6 @@
-#include <stdio.h>
-a 64-bit program in assembly that prints Hello, Holberton, followed by a new line.
-
+/*
+64-bit program in assembly that prints Hello, Holberton, followed by a new line.
+*/
 global    main
           extern    printf
 main:

@@ -6,32 +6,32 @@
 /**
  * add_node - adds a new node ata the beginning of a list_t file
  * @head: head of the list
- * @str: string to be add
+ * @str: string to be add in the list_t file
  * Return: the new node.
  */
 
 list_t *add_node(list_t **head, const char *str)
 {
-	list_t *_newnode;
+	list_t *_neode;
 
 	if (str == NULL)
 	{
 		return (NULL);
 	}
-	_newnode = malloc(sizeof(list_t));
+	_neode = malloc(sizeof(list_t));
 
-	if (_newnode == NULL)
+	if (_neode == NULL)
 	{
 		return (NULL);
 	}
-	_newnode->str = strdup(str);
-	if (_newnode->str == NULL)
+	_neode->str = strdup(str);
+	if (_neode->str == NULL)
 	{
-		free(_newnode);
+		free(_neode);
 		return (NULL);
 	}
-	_newnode->next = *head;
-	*head = _newnode;
+	_neode->next = *head;
+	*head = _neode;
 
-	return (_newnode);
+	return (_neode);
 }

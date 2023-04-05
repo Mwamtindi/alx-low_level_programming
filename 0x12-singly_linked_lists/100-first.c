@@ -1,13 +1,14 @@
 #include <stdio.h>
+#include "lists.h"
 
-static void before_main(void) __attribute__((constructor));
+static void bfxn_main(void) __attribute__((constructor));
 
 /**
- * before_main - prints the message before main fxn
+ * bfxn_main - prints the message before main fxn
  * Return: Nothing!.
  */
 
-void before_main(void)
+void bfxn_main(void)
 {
 	printf("You're beat! and yet, you must allow,\n");
 	printf("I bore my house upon my back!\n");

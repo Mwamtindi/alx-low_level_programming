@@ -9,4 +9,4 @@ main:
 	  call  printf
 	  mov 	eax, 0
 	  ret
-output_format: db ``Hello, Holberton\n``,0
+output_format: db "Hello, Holberton\n",0

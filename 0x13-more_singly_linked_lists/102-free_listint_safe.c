@@ -17,6 +17,7 @@ size_t listint_loop(const listint_t *head)
 	size_t nod = 1;
 
 	if (head == NULL || head->next == NULL)
+
 		return (0);
 
 	beko = head->next;

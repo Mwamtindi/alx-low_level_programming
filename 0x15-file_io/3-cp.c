@@ -20,7 +20,7 @@ char *cpy_buff_create(char *fe)
 
 	if (bffr == NULL)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %d\n", fe);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", fe);
 		exit(99);
 	}
 
@@ -99,8 +99,8 @@ int main(int argc, char *argv[])
 	} while (rd > 0);
 
 	free(bffr);
-	close_file(bgn);
-	close_file(nd);
+	f_closer(bgn);
+	f_closer(nd);
 
 	return (0);
 }

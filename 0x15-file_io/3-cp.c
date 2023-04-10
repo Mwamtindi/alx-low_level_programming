@@ -35,7 +35,7 @@ char *cpy_buff_create(char *fe)
  */
 void cpy_file_close(int fide)
 {
-	int tx;
+	ssize_t tx;
 
 	tx = close(fide);
 
@@ -64,16 +64,17 @@ int main(int argc, char *argv[])
 	int bgn, nd, rd, wr;
 	char *bffr;
 
+	bffr = cpy_buff_create(argv[2]);
+	bgn = open(argv[1], O_RDONLY);
+	rd = read(bgn, bffr, 1024);
+	nd = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	wr = write(nd, bffr, rd);
+
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-
-	bffr = cpy_buff_create(argv[2]);
-	bgn = open(argv[1], O_RDONLY);
-	rd = read(bgn, bffr, 1024);
-	nd = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
 		if (bgn == -1 || rd == -1)
@@ -84,7 +85,6 @@ int main(int argc, char *argv[])
 			exit(98);
 		}
 
-		wr = write(nd, bffr, rd);
 		if (nd == -1 || wr == -1)
 		{
 			dprintf(STDERR_FILENO,

@@ -20,7 +20,7 @@ char *cpy_buff_create(char *fe)
 
 	if (bffr == NULL)
 	{
-		dprintf(2, "Error: Can't write to %s\n", fe);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", fe);
 		exit(99);
 	}
 
@@ -41,7 +41,7 @@ void cpy_file_close(int fide)
 
 	if (tx == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", fide);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fide);
 		exit(100);
 	}
 }
@@ -64,29 +64,31 @@ int main(int argc, char *argv[])
 	int bgn, nd, rd, wr;
 	char *bffr;
 
+	if (argc != 3)
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
+
 	bffr = cpy_buff_create(argv[2]);
 	bgn = open(argv[1], O_RDONLY);
 	rd = read(bgn, bffr, 1024);
 	nd = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	wr = write(nd, bffr, rd);
-
-	if (argc != 3)
-	{
-		dprintf(2, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
 
 	do {
 		if (bgn == -1 || rd == -1)
 		{
-			dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+			dprintf(STDERR_FILENO,
+				"Error: Can't read from file %s\n", argv[1]);
 			free(bffr);
 			exit(98);
 		}
 
+		wr = write(nd, bffr, rd);
 		if (nd == -1 || wr == -1)
 		{
-			dprintf(2, "Error: Can't write to %s\n", argv[2]);
+			dprintf(STDERR_FILENO,
+				"Error: Can't write to %s\n", argv[2]);
 			free(bffr);
 			exit(99);
 		}

@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char *cpy_buff_create(char *file);
-void close_file(int fd);
+char *cpy_buff_create(char *fe);
+void cpy_file_close(int fide);
 
 /**
  * cpy_buff_create - fxt to allocates 1024 bytes for the buffer.

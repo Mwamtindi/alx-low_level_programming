@@ -20,7 +20,7 @@ char *cpy_buff_create(char *fe)
 
 	if (bffr == NULL)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", fe);
+		dprintf(2, "Error: Can't write to %d\n", fe);
 		exit(99);
 	}
 
@@ -41,7 +41,7 @@ void cpy_file_close(int fide)
 
 	if (tx == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fide);
+		dprintf(2, "Error: Can't close fd %d\n", fide);
 		exit(100);
 	}
 }

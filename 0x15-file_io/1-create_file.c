@@ -27,7 +27,7 @@ int create_file(const char *filename, char *text_content)
 	 * open file with flags and store the file desc in ap
 	 * write the string to the file and store num of bytes
 	 */
-	ap = open(filename, O_CREATE | O_RDWR | O_TRUNC);
+	ap = open(filename, O_CREATE | O_RDWR | O_TRUNC, 0600);
 	tf = write(ap, text_content, siz);
 
 	if (ap == -1 || tf == -1)

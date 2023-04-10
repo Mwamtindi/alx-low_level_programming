@@ -61,7 +61,7 @@ void cpy_file_close(int fide)
  */
 int main(int argc, char *argv[])
 {
-	int bgn, nd, rd, wr;
+	int bgn, nd, red, wrt;
 	char *bffr;
 
 	if (argc != 3)
@@ -72,11 +72,11 @@ int main(int argc, char *argv[])
 
 	bffr = cpy_buff_create(argv[2]);
 	bgn = open(argv[1], O_RDONLY);
-	rd = read(bgn, bffr, 1024);
+	red = read(bgn, bffr, 1024);
 	nd = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
-		if (bgn == -1 || rd == -1)
+		if (bgn == -1 || red == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't read from file %s\n", argv[1]);
@@ -84,8 +84,8 @@ int main(int argc, char *argv[])
 			exit(98);
 		}
 
-		wr = write(nd, bffr, rd);
-		if (nd == -1 || wr == -1)
+		wrt = write(nd, bffr, red);
+		if (nd == -1 || wrt == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't write to %s\n", argv[2]);
@@ -93,10 +93,10 @@ int main(int argc, char *argv[])
 			exit(99);
 		}
 
-		rd = read(bgn, bffr, 1024);
+		red = read(bgn, bffr, 1024);
 		nd = open(argv[2], O_WRONLY | O_APPEND);
 
-	} while (rd > 0);
+	} while (red > 0);
 
 	free(bffr);
 	cpy_file_close(bgn);

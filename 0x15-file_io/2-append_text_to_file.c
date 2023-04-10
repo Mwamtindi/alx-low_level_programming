@@ -20,8 +20,8 @@ int append_text_to_file(const char *filename, char *text_content)
 
 	if (text_content != NULL)
 	{
-		for (siz = 0; text_content[siz])
-			siz++;
+		for (siz = 0; text_content[siz]; siz++)
+			;
 	}
 	/**
 	 * open file with flags and store file desc in ap

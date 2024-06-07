@@ -1,0 +1,4 @@
+Com = gcc
+Target = school
+all: main.c school.c
+	$(Com) main.c school.c -o $(Target)

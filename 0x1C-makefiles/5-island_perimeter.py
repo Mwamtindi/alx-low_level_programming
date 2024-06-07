@@ -24,6 +24,6 @@ def island_perimeter(grid):
     for k in range(len(grid)):
         for l in range(len(grid[k])):
             if grid[k][l]:
-                per += per_num__neighbors(grid, k, l)
+                per += peri_num__neighbors(grid, k, l)
 
     return per

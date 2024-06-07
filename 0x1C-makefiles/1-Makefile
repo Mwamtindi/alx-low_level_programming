@@ -1,5 +1,5 @@
-Com = gcc
-Srcfile = main.c school.c
+CC = gcc
+SRC = main.c school.c
 Target = school
-all: $(Srcfile)
-	$(Com) $(Srcfile) -o $(Target)
+all: $(SRC)
+	$(CC) $(SRC) -o $(Target)

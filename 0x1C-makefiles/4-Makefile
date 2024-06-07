@@ -1,0 +1,35 @@
+# Define the compiler used
+CC = gcc
+
+# Define the source files used
+SRC = main.c school.c
+
+# Define the object files used
+OBJ = $(SRC:.c=.o)
+
+# Define the executable name used
+NAME = school
+
+# Define the remove command used
+RM = rm -f
+
+# Define the compiler flags
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+# Rule to build the executable
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+# Rule to remove the executable and backup files
+clean:
+	$(RM) *~ $(NAME)
+
+# Rule to remove the object files
+oclean:
+	$(RM) $(OBJ)
+
+# Rule to perform both clean and oclean
+fclean: clean oclean
+
+# Rule to force recompilation
+re: fclean all

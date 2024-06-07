@@ -13,9 +13,6 @@ NAME = school
 # Define the compiler flags used
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
-# Define the remove command used
-RM = rm -f
-
 # Declare phony targets
 .PHONY: all clean oclean fclean re
 

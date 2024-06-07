@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Module that calculates the perimeter of an island given in a grid."""
 
-def peri_num_neighbors(grid, k, l):
+def per_num_neighbors(grid, k, l):
     """fxt that returns number of neighbors a cell has in a grid."""
 
     num = 0
@@ -24,6 +24,6 @@ def island_perimeter(grid):
     for k in range(len(grid)):
         for l in range(len(grid[k])):
             if grid[k][l]:
-                per += peri_num__neighbors(grid, k, l)
+                per += per_num_neighbors(grid, k, l)
 
     return per

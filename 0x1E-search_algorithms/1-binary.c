@@ -14,12 +14,8 @@ void print_array(int *array, size_t left, size_t right)
 
 	printf("Searching in array: ");
 	for (s = left; s <= right; s++)
-	{
-		printf("%d", array[s]);
-		if (s < right)
-			printf(", ");
-	}
-	printf("\n");
+		printf("%d, ", array[s]);
+	printf("%d\n", array[right]);
 }
 
 /**

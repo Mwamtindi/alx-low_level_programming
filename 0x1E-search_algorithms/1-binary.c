@@ -2,23 +2,6 @@
 #include <stdio.h>
 
 /**
- * print_array - Fxn that prints an array of integers
- * @array: Array to be printed
- * @left: Starting index
- * @right: Ending index
- */
-void print_array(int *array, size_t left, size_t right)
-
-{
-	size_t s;
-
-	printf("Searching in array: ");
-	for (s = left; s <= right; s++)
-		printf("%d, ", array[s]);
-	printf("%d\n", array[right]);
-}
-
-/**
  * binary_search - Searches for a value in a sorted array of ints
  * using Binary search
  * @array: The pointer to the first element of the array to be searched
@@ -28,28 +11,34 @@ void print_array(int *array, size_t left, size_t right)
  * Return: The indx where value is located,
  * or -1 if not found or array is NULL
  */
+
 int binary_search(int *array, size_t size, int value)
 
 {
-	size_t left = 0, right = size - 1, avg;
+	int fir, mid, las;
+	int id;
 
 	if (array == NULL)
-		return (-1);
-
-	while (left <= right)
 	{
-		print_array(array, left, right);
-
-		avg = (left + right) / 2;
-
-		if (array[avg] == value)
-			return ((int)avg);
-
-		if (array[mid] < value)
-			left = avg + 1;
-		else
-			right = avg - 1;
+		return (-1);
 	}
 
+	fir = 0;
+	las = size - 1;
+
+	while (fir <= las)
+	{
+		mid = (fir + las) / 2;
+		printf("Searching in array: ");
+		for (id = fir; id <= las; id++)
+			printf("%i%s", array[id], id == las ? "\n" : ", ");
+
+		if (array[mid] < value)
+			fir = id + 1;
+		else if (array[mid] > value)
+			las = mid - 1;
+		else
+			return (mid);
+	}
 	return (-1);
 }

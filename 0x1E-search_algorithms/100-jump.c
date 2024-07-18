@@ -13,7 +13,6 @@
  * or -1 if not found or array is NULL
  */
 int jump_search(int *array, size_t size, int value)
-
 {
 	size_t move, prv = 0, s;
 
@@ -28,11 +27,11 @@ int jump_search(int *array, size_t size, int value)
 		prv += move;
 	}
 
-	printf("Value found between indexes [%lu] and [%lu]\n", s,
-			prv - move, prv < size ? prv : size - 1);
-
 	s = prv - move;
-	while (s < size && s <= prv)
+	printf("Value found between indexes [%lu] and [%lu]\n", s,
+			prv < size ? prv : size - 1);
+
+	while (s < size && s <= (prv < size ? prv : size - 1))
 	{
 		printf("Value checked array[%lu] = [%d]\n", s, array[s]);
 		if (array[s] == value)

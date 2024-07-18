@@ -34,7 +34,7 @@ int binary_search(int *array, size_t size, int value)
 			printf("%i%s", array[id], id == las ? "\n" : ", ");
 
 		if (array[mid] < value)
-			fir = id + 1;
+			fir = mid + 1;
 		else if (array[mid] > value)
 			las = mid - 1;
 		else
